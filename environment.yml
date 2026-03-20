@@ -1,0 +1,27 @@
+# Conda-first environment derived from the dependency superset in pyproject.toml.
+# Targets Linux x86_64 with GPU acceleration.
+# conda-forge currently publishes the PyTorch 2.8 GPU stack against CUDA 12.9,
+# so this uses cuda-version=12.9 instead of the uv wheel index's CUDA 12.8.
+name: whisperx
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python>=3.10,<3.14
+  - setuptools
+  - pip
+  - pytorch=2.8.*
+  - pytorch-gpu=2.8.*
+  - torchaudio=2.8.*
+  - cuda-version=12.9
+  - nltk>=3.9.1
+  - numpy>=2.1.0
+  - omegaconf>=2.3.0
+  - pandas>=2.2.3
+  - huggingface_hub<1.0.0
+  - transformers>=4.48.0
+  - triton>=3.3.0
+  - pip:
+      - ctranslate2>=4.5.0
+      - faster-whisper>=1.1.1
+      - pyannote-audio>=4.0.0
